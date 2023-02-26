@@ -26,8 +26,9 @@ public class ReviewController {
         return ResponseEntity.ok(reviewService.create(request));
     }
 
-    @PatchMapping("/{id}")
-    public ResponseEntity<ReviewInfo> update(ReviewUpdateRequest request){
+    @PatchMapping
+    public ResponseEntity<ReviewInfo> update(@Valid @RequestBody ReviewUpdateRequest request){
+        System.out.println(request.toString());
         return ResponseEntity.ok(reviewService.update(request));
     }
 
