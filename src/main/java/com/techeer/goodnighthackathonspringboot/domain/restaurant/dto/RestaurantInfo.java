@@ -1,4 +1,4 @@
-package com.techeer.goodnighthackathonspringboot.domain.restaurant.dto.request;
+package com.techeer.goodnighthackathonspringboot.domain.restaurant.dto;
 
 import com.techeer.goodnighthackathonspringboot.domain.restaurant.domain.Category;
 import lombok.*;
