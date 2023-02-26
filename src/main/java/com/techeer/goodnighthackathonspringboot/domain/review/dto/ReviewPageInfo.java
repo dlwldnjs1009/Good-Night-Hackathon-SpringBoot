@@ -1,7 +1,5 @@
 package com.techeer.goodnighthackathonspringboot.domain.review.dto;
 
-
-import com.techeer.goodnighthackathonspringboot.domain.restaurant.dto.RestaurantInfo;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

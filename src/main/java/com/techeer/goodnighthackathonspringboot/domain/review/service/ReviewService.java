@@ -9,6 +9,7 @@ import com.techeer.goodnighthackathonspringboot.domain.review.dto.ReviewCreateRe
 import com.techeer.goodnighthackathonspringboot.domain.review.dto.ReviewInfo;
 import com.techeer.goodnighthackathonspringboot.domain.review.dto.mapper.ReviewMapper;
 import com.techeer.goodnighthackathonspringboot.domain.review.dto.request.ReviewUpdateRequest;
+import com.techeer.goodnighthackathonspringboot.domain.review.dto.response.ReviewResponse;
 import com.techeer.goodnighthackathonspringboot.domain.review.exception.NotFoundReviewException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -41,5 +42,15 @@ public class ReviewService {
     public void delete(Long id){
         Review review = reviewRepository.findById(id).orElseThrow(NotFoundReviewException::new);
         reviewRepository.delete(review);
+    }
+
+    public ReviewResponse getOne(Long id){
+        Review review = reviewRepository.findById(id)
+                .orElseThrow(NotFoundReviewException::new);
+        return ReviewResponse.builder()
+                .restaurantName(review.getRestaurant().getName())
+                .title(review.getTitle())
+                .contents(review.getContents())
+                .build();
     }
 }

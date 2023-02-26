@@ -17,7 +17,7 @@ public class ReviewController {
     private final ReviewService reviewService;
 
     @PostMapping
-    public ResponseEntity<ReviewInfo> register(
+    public ResponseEntity<ReviewInfo> write(
             @Valid @RequestBody ReviewCreateRequest request
     ){
         return ResponseEntity.ok(reviewService.create(request));
@@ -33,4 +33,12 @@ public class ReviewController {
         reviewService.delete(id);
         return ResponseEntity.noContent().build();
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ReviewResponse> getOne(@PathVariable Long id){
+        return ResponseEntity.ok(reviewService.getOne(id));
+    }
+
+    @GetMapping("/page")
+    public R
 }
