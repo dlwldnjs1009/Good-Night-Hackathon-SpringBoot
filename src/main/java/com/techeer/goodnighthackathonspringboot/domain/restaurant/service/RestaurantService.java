@@ -21,13 +21,14 @@ public class RestaurantService {
     private final RestaurantRepository restaurantRepository;
     private final RestaurantMapper mapper;
 
-    public RestaurantInfo  create(RestaurantCreateRequest request){
+    public RestaurantInfo create(RestaurantCreateRequest request){
         Restaurant entity = Restaurant.builder()
-                .name((request.getName())
+                .name(request.getName())
                 .category(Category.valueOf(request.getCategory()))
                 .build();
         return mapper.mapEntityToInfo(restaurantRepository.save(entity));
     }
+
     public RestaurantInfo update(RestaurantUpdateRequest request) {
         Restaurant foundRestaurant = restaurantRepository
                 .findById(request.getId())
