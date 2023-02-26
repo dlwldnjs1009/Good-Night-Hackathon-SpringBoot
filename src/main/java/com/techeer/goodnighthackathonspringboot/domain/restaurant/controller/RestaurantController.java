@@ -27,6 +27,7 @@ public class RestaurantController {
     public ResponseEntity<RestaurantInfo> update(
             @Valid @RequestBody RestaurantUpdateRequest request
     ){
+        System.out.println("hi");
         return ResponseEntity.ok(restaurantService.update(mapper.mapUpdateRequestToInfo(request)));
     }
 
