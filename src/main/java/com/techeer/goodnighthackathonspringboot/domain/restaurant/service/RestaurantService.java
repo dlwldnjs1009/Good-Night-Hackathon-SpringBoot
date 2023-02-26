@@ -53,6 +53,7 @@ public class RestaurantService {
                 restaurantRepository.findById(id)
                         .orElseThrow(NotFoundRestaurantException::new);
         foundRestaurant.delete();
+        restaurantRepository.save(foundRestaurant);
     }
 
 }
