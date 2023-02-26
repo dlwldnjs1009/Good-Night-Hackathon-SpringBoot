@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class RestaurantInfo {
+    private Long id;
     private String name;
     private Category category;
 }
