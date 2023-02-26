@@ -36,4 +36,9 @@ public class RestaurantController {
         RestaurantPageInfo restaurantPageInfo = restaurantService.getRestaurantByPagination(offset, size);
         return ResponseEntity.ok(restaurantPageInfo);
     }
+    @GetMapping("/{id}")
+    public ResponseEntity<RestaurantInfo> getOneRestaurant(@PathVariable Long id){
+        RestaurantInfo restaurantInfo = restaurantService.getOneRestaurant(id);
+        return ResponseEntity.ok(restaurantInfo);
+    }
 }
