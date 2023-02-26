@@ -1,8 +1,11 @@
 package com.techeer.goodnighthackathonspringboot.domain.review.controller;
 
-import com.techeer.goodnighthackathonspringboot.domain.review.dto.ReviewCreateRequest;
+
 import com.techeer.goodnighthackathonspringboot.domain.review.dto.ReviewInfo;
+import com.techeer.goodnighthackathonspringboot.domain.review.dto.ReviewPageInfo;
+import com.techeer.goodnighthackathonspringboot.domain.review.dto.request.ReviewCreateRequest;
 import com.techeer.goodnighthackathonspringboot.domain.review.dto.request.ReviewUpdateRequest;
+import com.techeer.goodnighthackathonspringboot.domain.review.dto.response.ReviewResponse;
 import com.techeer.goodnighthackathonspringboot.domain.review.service.ReviewService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -40,5 +43,11 @@ public class ReviewController {
     }
 
     @GetMapping("/page")
-    public R
+    public ResponseEntity<ReviewPageInfo> getReviewByPagination(
+            @RequestParam(defaultValue = "0") int offset,
+            @RequestParam(defaultValue = "10") int size,
+            @RequestParam String cmd){
+        ReviewPageInfo reviewPageInfo = reviewService.getReviewByPagination(offset, size, cmd);
+        return ResponseEntity.ok(reviewPageInfo);
+    }
 }
